@@ -1,0 +1,165 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.navbarTransparent {
+  background: transparent;
+}
+
+.navbarSolid {
+  background: #ecc9bd;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #394a34;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logoIcon {
+  color: #db4b4e;
+  font-size: 2rem;
+}
+
+.logoWhite {
+  color: white;
+}
+
+.menu {
+  display: none;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex;
+  }
+}
+
+.menuItem {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.menuItemDark {
+  color: #394a34;
+}
+
+.menuItemLight {
+  color: white;
+}
+
+.menuItemDark:hover {
+  color: #db4b4e;
+}
+
+.menuItemLight:hover {
+  color: #ecc9bd;
+}
+
+.menuItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease;
+}
+
+.menuItemDark::after {
+  background: #db4b4e;
+}
+
+.menuItemLight::after {
+  background: #ecc9bd;
+}
+
+.menuItem:hover::after {
+  width: 100%;
+}
+
+.mobileButton {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .mobileButton {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: #ecc9bd;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 40;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenuItem {
+  display: block;
+  padding: 1rem 0;
+  color: #394a34;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(57, 74, 52, 0.1);
+  transition: all 0.2s ease;
+}
+
+.mobileMenuItem:last-child {
+  border-bottom: none;
+}
+
+.mobileMenuItem:hover {
+  color: #db4b4e;
+  padding-left: 0.5rem;
+}

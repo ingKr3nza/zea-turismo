@@ -1,0 +1,615 @@
+.page {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+              url('/api/placeholder/1920/1080');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '🧭';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  font-size: 15rem;
+  opacity: 0.1;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ecc9bd, #db4b4e, #e6a36a);
+}
+
+.heroContent {
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 2;
+  animation: fadeInUp 1s ease;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Main Section */
+.section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Grid Layout */
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}
+
+/* Info Panel */
+.infoPanel {
+  background: white;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: slideInLeft 0.8s ease;
+}
+
+.infoPanel::before {
+  content: '✨';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 8rem;
+  opacity: 0.05;
+  transform: rotate(10deg);
+}
+
+.infoPanel h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.infoPanel h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #db4b4e;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.infoPanel:hover h2::after {
+  width: 120px;
+}
+
+/* Benefits Grid */
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.benefit {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ecc9bd, #db4b4e);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.benefit:hover {
+  transform: translateY(-5px);
+  border-color: #ecc9bd;
+  box-shadow: 0 15px 30px -10px rgba(219, 75, 78, 0.2);
+}
+
+.benefit:hover::before {
+  transform: translateX(0);
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ecc9bd 0%, #dea080 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.benefit:hover .benefitIcon {
+  transform: scale(1.1) rotate(5deg);
+  background: #db4b4e;
+  color: white;
+}
+
+.benefit h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 0.5rem;
+}
+
+.benefit p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Testimonials Section (opcional, podemos agregar después) */
+.testimonials {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px dashed #ecc9bd;
+}
+
+.testimonialsTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #394a34;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.testimonial {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  font-size: 4rem;
+  color: #ecc9bd;
+  opacity: 0.3;
+  font-family: serif;
+}
+
+.testimonial p {
+  color: #394a34;
+  font-style: italic;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #db4b4e;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.testimonialAuthor img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Guide Cards Preview */
+.guidePreview {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #394a34 0%, #2a3726 100%);
+  border-radius: 1.5rem;
+  color: white;
+}
+
+.guidePreview h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ecc9bd;
+}
+
+.guidePreview p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.guideStats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.guideStat {
+  text-align: center;
+}
+
+.guideStatValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e6a36a;
+}
+
+.guideStatLabel {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* FAQ Section */
+.faqSection {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f5f5f5;
+  border-radius: 1.5rem;
+}
+
+.faqTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #394a34;
+  margin-bottom: 1.5rem;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.faqQuestion {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #394a34;
+  transition: color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  color: #db4b4e;
+}
+
+.faqQuestion svg {
+  transition: transform 0.3s ease;
+}
+
+.faqQuestion.open svg {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 0 1rem 0;
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Trust Badges */
+.trustBadges {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.trustBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  color: #394a34;
+  border: 1px solid #ecc9bd;
+}
+
+.trustBadge span {
+  color: #db4b4e;
+  font-weight: 700;
+}
+
+/* Price Card */
+.priceCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 2px solid #ecc9bd;
+  position: relative;
+  overflow: hidden;
+}
+
+.priceCard::before {
+  content: '💰';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 5rem;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.priceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.priceTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #394a34;
+}
+
+.priceValue {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #db4b4e;
+}
+
+.priceValue small {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.priceFeatures {
+  list-style: none;
+  padding: 0;
+}
+
+.priceFeatures li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+}
+
+.priceFeatures li::before {
+  content: '✓';
+  color: #394a34;
+  font-weight: bold;
+}
+
+/* Emergency Contact */
+.emergencyContact {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff3e0;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.emergencyContact h4 {
+  color: #db4b4e;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.emergencyContact p {
+  color: #394a34;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.emergencyContact small {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .infoPanel {
+    padding: 1.5rem;
+  }
+  
+  .infoPanel h2 {
+    font-size: 1.8rem;
+  }
+  
+  .benefit {
+    padding: 1rem;
+  }
+  
+  .benefitIcon {
+    min-width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}
+
+/* Loading state */
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ecc9bd;
+  border-radius: 50%;
+  border-top-color: #db4b4e;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success animation */
+.successCheckmark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.successCheckmark::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: #394a34;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

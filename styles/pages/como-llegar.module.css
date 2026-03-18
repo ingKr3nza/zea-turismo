@@ -1,0 +1,485 @@
+.page {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+              url('/api/placeholder/1920/1080');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.heroContent {
+  max-width: 800px;
+  padding: 0 2rem;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: fadeInDown 1s ease;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main Section */
+.section {
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Routes Section */
+.routesSection {
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #db4b4e;
+  border-radius: 2px;
+}
+
+.routeCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.routeCard {
+  background: #f9f9f9;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.routeCard:hover {
+  transform: translateX(10px);
+  border-color: #ecc9bd;
+  box-shadow: 0 15px 30px -10px rgba(57, 74, 52, 0.2);
+}
+
+.routeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #db4b4e;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.routeCard:hover::before {
+  transform: scaleY(1);
+}
+
+.routeCard.merida {
+  background: linear-gradient(135deg, #ecc9bd 0%, #f5e1d9 100%);
+}
+
+.routeCard.vigia {
+  background: linear-gradient(135deg, #dea080 0%, #ecc9bd 100%);
+}
+
+.routeTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.routeTitle span {
+  font-size: 2rem;
+}
+
+.routeInfo {
+  margin-bottom: 1rem;
+}
+
+.routeInfoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #394a34;
+  font-size: 1rem;
+}
+
+.routeInfoIcon {
+  color: #db4b4e;
+  font-size: 1.2rem;
+}
+
+.routeDescription {
+  color: #394a34;
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(57, 74, 52, 0.2);
+}
+
+/* Transportation Cards */
+.transportSection {
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.transportGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.transportCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.transportCard:hover {
+  transform: scale(1.02);
+  border-color: #db4b4e;
+  box-shadow: 0 20px 30px -10px rgba(219, 75, 78, 0.2);
+}
+
+.transportIcon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  height: 60px;
+  background: #ecc9bd;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.transportCard:hover .transportIcon {
+  background: #db4b4e;
+  color: white;
+  transform: rotate(10deg);
+}
+
+.transportContent {
+  flex: 1;
+}
+
+.transportTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 0.5rem;
+}
+
+.transportDescription {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.transportCard.accent {
+  background: linear-gradient(135deg, #db4b4e 0%, #e6a36a 100%);
+}
+
+.transportCard.accent .transportTitle,
+.transportCard.accent .transportDescription {
+  color: white;
+}
+
+.transportCard.accent .transportIcon {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Tips Section */
+.tipsSection {
+  background: #394a34;
+  border-radius: 2rem;
+  padding: 3rem;
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tipsSection::before {
+  content: '✈️';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 10rem;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.tipsTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ecc9bd;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .tipsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tipCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tipCard:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ecc9bd;
+}
+
+.tipIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: float 3s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.tipTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.tipDescription {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Map Section */
+.mapSection {
+  background: #f9f9f9;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: 4rem 0;
+}
+
+.mapContainer {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  height: 400px;
+  background: #e0e0e0;
+  position: relative;
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ecc9bd 0%, #dea080 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #394a34;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mapPlaceholder span {
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, #ecc9bd 0%, #dea080 100%);
+  border-radius: 2rem;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 1rem;
+}
+
+.ctaDescription {
+  color: #394a34;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #394a34;
+  color: white;
+  text-decoration: none;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ctaButton:hover {
+  background: #db4b4e;
+  transform: scale(1.05);
+  box-shadow: 0 20px 30px -10px rgba(219, 75, 78, 0.4);
+}
+
+/* Quick Info */
+.quickInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.quickInfoItem {
+  background: #f5f5f5;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.quickInfoValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #db4b4e;
+}
+
+.quickInfoLabel {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}

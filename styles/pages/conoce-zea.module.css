@@ -1,0 +1,253 @@
+.page {
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+              url('/zeaHorizontal.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.heroContent {
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 5rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.sectionAlt {
+  background: #f9f9f9;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionHeader h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #db4b4e;
+}
+
+.sectionHeader p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.historyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .historyGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.historyContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.historyContent p {
+  margin-bottom: 1.5rem;
+}
+
+.highlightBox {
+  background: #ecc9bd;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  margin-top: 2rem;
+}
+
+.highlightBox h3 {
+  font-size: 1.5rem;
+  color: #394a34;
+  margin-bottom: 1rem;
+}
+
+.highlightBox ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlightBox li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.highlightBox li::before {
+  content: '✓';
+  color: #db4b4e;
+  font-weight: bold;
+}
+
+.historyImage {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.3);
+}
+
+.historyImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.attractionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .attractionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .attractionsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.videoContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.4);
+}
+
+.videoContainer iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+}
+
+.cultureSection {
+  background: #394a34;
+  color: white;
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .cultureGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cultureContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ecc9bd;
+}
+
+.cultureContent p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cultureFeatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.cultureFeature {
+  text-align: center;
+}
+
+.cultureFeature span {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cultureFeature h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ecc9bd;
+}
+
+.cultureFeature p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}

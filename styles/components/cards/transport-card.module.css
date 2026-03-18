@@ -1,0 +1,117 @@
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateX(10px);
+  border-color: #db4b4e;
+  box-shadow: 0 20px 40px -10px rgba(219, 75, 78, 0.2);
+}
+
+.accent {
+  background: linear-gradient(135deg, #db4b4e 0%, #e6a36a 100%);
+}
+
+.accent .title,
+.accent .description,
+.accent .detailsButton {
+  color: white;
+}
+
+.accent .detailsList li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.accent .detailsList li::before {
+  color: #ecc9bd;
+}
+
+.iconWrapper {
+  font-size: 2.5rem;
+  min-width: 70px;
+  height: 70px;
+  background: #ecc9bd;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  background: #db4b4e;
+  color: white;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.accent .iconWrapper {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.detailsButton {
+  background: none;
+  border: none;
+  color: #db4b4e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0;
+  transition: all 0.2s ease;
+}
+
+.detailsButton:hover {
+  gap: 0.5rem;
+  color: #394a34;
+}
+
+.detailsList {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  list-style: none;
+}
+
+.detailsList li {
+  padding: 0.3rem 0 0.3rem 1.5rem;
+  position: relative;
+  color: #666;
+}
+
+.detailsList li::before {
+  content: '•';
+  color: #db4b4e;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}

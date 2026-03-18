@@ -1,0 +1,84 @@
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -10px rgba(219, 75, 78, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ecc9bd, #db4b4e, #e6a36a);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.card:hover::before {
+  transform: translateX(0);
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: #ecc9bd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  background: #db4b4e;
+  transform: rotate(360deg) scale(1.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #394a34;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.accent {
+  background: linear-gradient(135deg, #dea080 0%, #e6a36a 100%);
+  color: white;
+}
+
+.accent .title {
+  color: white;
+}
+
+.accent .description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.accent .iconWrapper {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
