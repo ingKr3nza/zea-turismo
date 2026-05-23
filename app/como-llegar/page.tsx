@@ -3,16 +3,34 @@
 import { useState } from 'react';
 import TransportCard from '@/components/cards/TransportCard';
 import styles from '@/styles/pages/como-llegar.module.css';
-import { FiMapPin, FiClock, FiNavigation, FiInfo } from 'react-icons/fi';
+import { 
+  FiMapPin, 
+  FiClock, 
+  FiNavigation, 
+  FiInfo, 
+  FiTarget,
+  FiDroplet,
+  FiSmartphone,
+  FiDollarSign,
+  FiCalendar,
+  FiThermometer,
+  FiUsers,
+  FiUser,
+  FiTruck,
+  FiWind,
+  FiMap
+} from 'react-icons/fi';
+import Image from 'next/image';
 
 export default function ComoLlegar() {
   const [activeRoute, setActiveRoute] = useState<string | null>(null);
+  const [origin, setOrigin] = useState('');
 
   const routes = [
     {
       id: 'merida',
       city: 'Desde Mérida',
-      icon: '🏔️',
+      icon: <FiMap />,
       distance: '120 km',
       time: '2.5 - 3 horas',
       route: 'Carretera Trasandina vía El Vigía, desvío a Santa Cruz de Mora',
@@ -26,7 +44,7 @@ export default function ComoLlegar() {
     {
       id: 'vigia',
       city: 'Desde El Vigía',
-      icon: '🚗',
+      icon: <FiNavigation />,
       distance: '60 km',
       time: '1.5 horas',
       route: 'Vía Santa Cruz de Mora, continuar por carretera principal',
@@ -43,7 +61,7 @@ export default function ComoLlegar() {
     {
       title: 'Transporte Público',
       description: 'Autobuses y por puestos desde terminales de Mérida y El Vigía',
-      icon: '🚌',
+      icon: <FiTruck />,
       details: [
         'Salidas cada hora desde Mérida',
         'Pasaje aproximadamente $3-5',
@@ -54,7 +72,7 @@ export default function ComoLlegar() {
     {
       title: 'Vehículo Particular',
       description: 'Ideal para libertad de horarios y paradas en el camino',
-      icon: '🚗',
+      icon: <FiUser />,
       details: [
         'Carretera principal en buen estado',
         'Estacionamiento en el pueblo',
@@ -65,7 +83,7 @@ export default function ComoLlegar() {
     {
       title: 'Servicio de Guías',
       description: 'Transporte incluido con guía local que conoce la zona',
-      icon: '🧭',
+      icon: <FiUsers />,
       accent: true,
       details: [
         'Pick up en tu hospedaje',
@@ -78,52 +96,83 @@ export default function ComoLlegar() {
 
   const tips = [
     {
-      icon: '⏰',
+      icon: <FiCalendar />,
       title: 'Mejor época',
-      description: 'Diciembre a abril (temporada seca) para mejor acceso a senderos',
-      color: '#ecc9bd'
+      description: 'Diciembre a abril (temporada seca) para mejor acceso a senderos'
     },
     {
-      icon: '🧥',
+      icon: <FiThermometer />,
       title: 'Clima',
-      description: 'Temperatura promedio 15-20°C. Lleva ropa de abrigo y impermeable',
-      color: '#dea080'
+      description: 'Temperatura promedio 15-20°C. Lleva ropa de abrigo y impermeable'
     },
     {
-      icon: '💧',
+      icon: <FiDroplet />,
       title: 'Hidratación',
-      description: 'Lleva agua y snacks. Hay pocos negocios en el camino',
-      color: '#db4b4e'
+      description: 'Lleva agua y snacks. Hay pocos negocios en el camino'
     },
     {
-      icon: '📱',
+      icon: <FiSmartphone />,
       title: 'Comunicación',
-      description: 'Señal de Movilnet y Movistar en la mayoría del trayecto',
-      color: '#e6a36a'
+      description: 'Señal de Movilnet y Movistar en la mayoría del trayecto'
     },
     {
-      icon: '⛽',
+      icon: <FiWind />,
       title: 'Combustible',
-      description: 'Llena el tanque en Mérida o El Vigía antes de salir',
-      color: '#394a34'
+      description: 'Llena el tanque en Mérida o El Vigía antes de salir'
     },
     {
-      icon: '💰',
-      title: 'Efectivo',
-      description: 'Lleva efectivo, no hay cajeros automáticos en Zea',
-      color: '#ecc9bd'
+      icon: <FiDollarSign />,
+      title: 'Dinero',
+      description: 'Lleva efectivo o tarjeta, no hay cajeros automáticos en Zea'
     }
   ];
+
+  const handlePlanRoute = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (origin.trim()) {
+      const destination = 'Zea, Mérida, Venezuela';
+      const mapsUrl = `https://www.google.com/maps/dir/${encodeURIComponent(origin)}/${encodeURIComponent(destination)}`;
+      window.open(mapsUrl, '_blank');
+    }
+  };
 
   return (
     <div className={styles.page}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <div className={styles.heroOverlay}></div>
+          <Image 
+            src="/images/hero-como-llega.jpg" 
+            alt="Cómo llegar a Zea" 
+            fill
+            className={styles.heroImage}
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Cómo llegar a Zea</h1>
+          <span className={styles.heroBadge}>Rutas y Transporte • Zea • Mérida</span>
+          <h1 className={styles.heroTitle}>
+            Cómo llegar a <span className={styles.heroHighlight}>Zea</span>
+          </h1>
           <p className={styles.heroSubtitle}>
             Tu guía completa para llegar al Rinconcito Encantado de los Andes
           </p>
+          <div className={styles.heroButtons}>
+            <a href="#routes" className={styles.heroButtonPrimary}>
+              Ver rutas
+            </a>
+            <a href="/solicita-guia" className={styles.heroButtonSecondary}>
+              Solicitar guía
+            </a>
+          </div>
+        </div>
+        <div className={styles.scrollIndicator}>
+          <div className={styles.scrollMouse}>
+            <div className={styles.scrollWheel}></div>
+          </div>
+          <span className={styles.scrollText}>Desliza para explorar</span>
         </div>
       </section>
 
@@ -153,7 +202,7 @@ export default function ComoLlegar() {
           {/* Routes and Transport Grid */}
           <div className={styles.grid}>
             {/* Routes Section */}
-            <div className={styles.routesSection}>
+            <div className={styles.routesSection} id="routes">
               <h2 className={styles.sectionTitle}>
                 <FiMapPin style={{ marginRight: '0.5rem', display: 'inline' }} />
                 Rutas de Acceso
@@ -170,7 +219,7 @@ export default function ComoLlegar() {
                     onMouseLeave={() => setActiveRoute(null)}
                   >
                     <h3 className={styles.routeTitle}>
-                      <span>{route.icon}</span> {route.city}
+                      <span className={styles.routeIcon}>{route.icon}</span> {route.city}
                     </h3>
                     
                     <div className={styles.routeInfo}>
@@ -245,17 +294,50 @@ export default function ComoLlegar() {
           {/* Map Section */}
           <div className={styles.mapSection}>
             <h2 className={styles.sectionTitle} style={{ marginBottom: '2rem' }}>
-              <FiMapPin /> Ubicación en el mapa
+              <FiTarget /> Ubicación en el mapa
             </h2>
             
+            {/* Planificador de ruta */}
+            <div className={styles.routePlanner}>
+              <h3 className={styles.routePlannerTitle}>Planifica tu ruta</h3>
+              <p className={styles.routePlannerDesc}>
+                Ingresa tu ubicación de origen y te mostraremos la mejor ruta hacia Zea
+              </p>
+              <form onSubmit={handlePlanRoute} className={styles.routeForm}>
+                <div className={styles.routeInputGroup}>
+                  <input
+                    type="text"
+                    placeholder="Ej: Mérida, Venezuela"
+                    value={origin}
+                    onChange={(e) => setOrigin(e.target.value)}
+                    className={styles.routeInput}
+                  />
+                  <button type="submit" className={styles.routeButton}>
+                    Trazar ruta
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            {/* Mapa embebido */}
             <div className={styles.mapContainer}>
-              <div className={styles.mapPlaceholder}>
-                <span>🗺️ Mapa interactivo de Zea - Próximamente</span>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126291.35203245812!2d-71.76298395!3d8.44041705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e64226963cc46c7%3A0x2c45a78c21dd89cb!2zWmVhLCA1MTQ0LCBNw6lyaWRh!5e0!3m2!1ses!2sve!4v1779573866707!5m2!1ses!2sve"
+                width="100%"
+                height="450"
+                style={{ border: 0, borderRadius: '1rem' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa de Zea"
+              />
             </div>
             
-            <div style={{ marginTop: '1rem', textAlign: 'center', color: '#666' }}>
-              <p>Coordenadas: 8°22′N 71°46′O</p>
+            <div className={styles.mapCoordinates}>
+              <p>
+                <FiMapPin style={{ marginRight: '0.5rem', color: 'var(--color-accent2)' }} />
+                Coordenadas: <strong>8°22′N 71°46′O</strong>
+              </p>
             </div>
           </div>
 

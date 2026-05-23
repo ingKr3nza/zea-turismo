@@ -9,9 +9,9 @@ export default function Hero() {
       <div className={styles.videoBackground}>
         <Image
           className={styles.videoIframe}
-          src="/zeaHorizontal.jpg"
-          width={1000}
-          height={1000}
+          src="/zeaHero.jpg"
+          width={1200}
+          height={1200}
           alt=''
         />
         <div className={styles.overlay} />
@@ -24,7 +24,7 @@ export default function Hero() {
         <p className={styles.subtitle}>
           Zea: Paisajes de ensueño, Pozo Azul, café de altura y la calidez de su gente te esperan para una experiencia inolvidable.
         </p>
-        <div className="flex flex-col justify-center items-center">
+        <div className={styles.buttonGroup}>
           <a href="/conoce-zea" className={styles.button}>
             Explorar Zea
           </a>

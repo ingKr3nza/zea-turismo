@@ -34,8 +34,6 @@ export default function Footer() {
     { href: '/conoce-zea', label: 'Conoce a Zea' },
     { href: '/como-llegar', label: 'Cómo llegar' },
     { href: '/solicita-guia', label: 'Solicita un guía' },
-    { href: '/galeria', label: 'Galería de fotos' },
-    { href: '/blog', label: 'Blog de viajes' },
   ];
 
   const contactInfo = [

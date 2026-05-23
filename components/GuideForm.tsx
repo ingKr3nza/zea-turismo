@@ -2,9 +2,27 @@
 
 import { useState } from 'react';
 import styles from '@/styles/components/guide-form.module.css';
-import { FiAlertCircle } from 'react-icons/fi';
+import { FiAlertCircle, FiMapPin } from 'react-icons/fi';
 
-export default function GuideForm() {
+interface GuideFormProps {
+  selectedPlaceIds?: string[];
+}
+
+// Lista de lugares para mostrar en el formulario (debe coincidir con la de SolicitaGuia)
+const placesList = [
+  { id: 'pozo-azul', name: 'Pozo Azul', icon: '💧', category: 'Natural' },
+  { id: 'centro-cultural', name: 'Centro Cultural', icon: '🏛️', category: 'Cultural' },
+  { id: 'plaza-bolivar', name: 'Plaza Bolívar', icon: '🏛️', category: 'Cultural' },
+  { id: 'iglesia-mercedes', name: 'Iglesia Nuestra Señora de las Mercedes', icon: '⛪', category: 'Religioso' },
+  { id: 'santuario-cuchilla', name: 'Santuario Santo Niño de La Cuchilla', icon: '⛪', category: 'Religioso' },
+  { id: 'plaza-primeros-pobladores', name: 'Plaza los Primeros Pobladores', icon: '🏛️', category: 'Cultural' },
+  { id: 'parque-adriani', name: 'Parque Domingo Adriani', icon: '🌳', category: 'Recreativo' },
+  { id: 'centro-social', name: 'Centro Social 19 de Abril', icon: '🎭', category: 'Cultural' },
+  { id: 'mirador-zea', name: 'Mirador de Zea', icon: '🏔️', category: 'Natural' },
+  { id: 'casa-adriani', name: 'Casa Natal de Alberto Adriani', icon: '🏠', category: 'Histórico' }
+];
+
+export default function GuideForm({ selectedPlaceIds = [] }: GuideFormProps) {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -17,6 +35,11 @@ export default function GuideForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // Obtener los datos completos de los lugares seleccionados
+  const selectedPlaces = selectedPlaceIds
+    .map(id => placesList.find(place => place.id === id))
+    .filter((place): place is typeof placesList[0] => place !== undefined);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -45,6 +68,13 @@ export default function GuideForm() {
 
     setIsSubmitting(true);
     
+    // Aquí enviarías los datos incluyendo selectedPlaces
+    const solicitudData = {
+      ...formData,
+      lugaresInteres: selectedPlaces.map(place => place.name)
+    };
+    console.log('Solicitud enviada:', solicitudData);
+    
     // Simular envío
     await new Promise(resolve => setTimeout(resolve, 1500));
     
@@ -72,6 +102,18 @@ export default function GuideForm() {
         <p className={styles.successText}>
           Un guía local se contactará contigo en las próximas 24 horas para organizar tu aventura en Zea.
         </p>
+        {selectedPlaces.length > 0 && (
+          <div className={styles.successPlaces}>
+            <p>Te contactaremos para mostrarte:</p>
+            <div className={styles.successPlacesList}>
+              {selectedPlaces.map(place => (
+                <span key={place.id} className={styles.successPlaceBadge}>
+                  {place.icon} {place.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -82,6 +124,23 @@ export default function GuideForm() {
       <p className={styles.subtitle}>
         Completa el formulario y un experto en turismo de Zea te contactará para personalizar tu experiencia.
       </p>
+
+      {/* Mostrar lugares seleccionados */}
+      {selectedPlaces.length > 0 && (
+        <div className={styles.selectedPlacesSection}>
+          <div className={styles.selectedPlacesHeader}>
+            <FiMapPin className={styles.selectedPlacesIcon} />
+            <span>Lugares que te interesan:</span>
+          </div>
+          <div className={styles.selectedPlacesList}>
+            {selectedPlaces.map(place => (
+              <span key={place.id} className={styles.selectedPlaceBadge}>
+                {place.icon} {place.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className={styles.row}>
         <div className={styles.fieldGroup}>

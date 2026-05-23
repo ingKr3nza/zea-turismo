@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import GuideForm from '@/components/GuideForm';
 import styles from '@/styles/pages/solicita-guia.module.css';
-import { FiChevronDown, FiShield, FiStar, FiClock, FiUsers } from 'react-icons/fi';
+import { FiChevronDown, FiShield, FiStar, FiClock, FiUsers, FiMapPin } from 'react-icons/fi';
+import Image from 'next/image';
 
 export default function SolicitaGuia() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -27,6 +28,29 @@ export default function SolicitaGuia() {
     }
   ];
 
+  const places = [
+    { id: 'pozo-azul', name: 'Pozo Azul', icon: '💧', category: 'Natural' },
+    { id: 'centro-cultural', name: 'Centro Cultural', icon: '🏛️', category: 'Cultural' },
+    { id: 'plaza-bolivar', name: 'Plaza Bolívar', icon: '🏛️', category: 'Cultural' },
+    { id: 'iglesia-mercedes', name: 'Iglesia Nuestra Señora de las Mercedes', icon: '⛪', category: 'Religioso' },
+    { id: 'santuario-cuchilla', name: 'Santuario Santo Niño de La Cuchilla', icon: '⛪', category: 'Religioso' },
+    { id: 'plaza-primeros-pobladores', name: 'Plaza los Primeros Pobladores', icon: '🏛️', category: 'Cultural' },
+    { id: 'parque-adriani', name: 'Parque Domingo Adriani', icon: '🌳', category: 'Recreativo' },
+    { id: 'centro-social', name: 'Centro Social 19 de Abril', icon: '🎭', category: 'Cultural' },
+    { id: 'mirador-zea', name: 'Mirador de Zea', icon: '🏔️', category: 'Natural' },
+    { id: 'casa-adriani', name: 'Casa Natal de Alberto Adriani', icon: '🏠', category: 'Histórico' }
+  ];
+
+  const [selectedPlaces, setSelectedPlaces] = useState<string[]>([]);
+
+  const togglePlace = (placeId: string) => {
+    setSelectedPlaces(prev =>
+      prev.includes(placeId)
+        ? prev.filter(id => id !== placeId)
+        : [...prev, placeId]
+    );
+  };
+
   const guides = [
     { name: 'Carlos Méndez', experience: '10 años', specialty: 'Pozo Azul', rating: 4.9 },
     { name: 'María Pérez', experience: '8 años', specialty: 'Ruta del Café', rating: 5.0 },
@@ -35,19 +59,48 @@ export default function SolicitaGuia() {
 
   return (
     <div className={styles.page}>
+      {/* Hero Section */}
       <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <div className={styles.heroOverlay}></div>
+          <Image 
+            src="/images/hero-guia.jpg" 
+            alt="Guía turístico en Zea" 
+            fill
+            className={styles.heroImage}
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Solicita un Guía</h1>
+          <span className={styles.heroBadge}>Expertos locales • Experiencias únicas</span>
+          <h1 className={styles.heroTitle}>
+            Solicita un <span className={styles.heroHighlight}>Guía</span>
+          </h1>
           <p className={styles.heroSubtitle}>
             Explora Zea con un experto local que te mostrará los mejores rincones
           </p>
+          <div className={styles.heroButtons}>
+            <a href="#form" className={styles.heroButtonPrimary}>
+              Solicitar ahora
+            </a>
+            <a href="#places" className={styles.heroButtonSecondary}>
+              Ver lugares
+            </a>
+          </div>
+        </div>
+        <div className={styles.scrollIndicator}>
+          <div className={styles.scrollMouse}>
+            <div className={styles.scrollWheel}></div>
+          </div>
+          <span className={styles.scrollText}>Desliza para explorar</span>
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.grid}>
-            {/* Panel de información */}
+            {/* Panel de información - LADO IZQUIERDO */}
             <div className={styles.infoPanel}>
               <h2>¿Por qué contratar un guía local?</h2>
               
@@ -83,6 +136,33 @@ export default function SolicitaGuia() {
                     <p>Rutas adaptadas a tus intereses y nivel de experiencia.</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Selección de lugares */}
+              <div className={styles.placesSection} id="places">
+                <h3>Lugares que puedes visitar</h3>
+                <p>Selecciona los lugares que te interesan</p>
+                
+                <div className={styles.placesGrid}>
+                  {places.map((place) => (
+                    <button
+                      key={place.id}
+                      onClick={() => togglePlace(place.id)}
+                      className={`${styles.placeButton} ${selectedPlaces.includes(place.id) ? styles.selected : ''}`}
+                    >
+                      <span className={styles.placeIcon}>{place.icon}</span>
+                      <span className={styles.placeName}>{place.name}</span>
+                      <span className={styles.placeCategory}>{place.category}</span>
+                    </button>
+                  ))}
+                </div>
+                
+                {selectedPlaces.length > 0 && (
+                  <div className={styles.selectedPlaces}>
+                    <FiMapPin />
+                    <span>{selectedPlaces.length} lugar(es) seleccionado(s)</span>
+                  </div>
+                )}
               </div>
 
               {/* Guías destacados */}
@@ -124,11 +204,6 @@ export default function SolicitaGuia() {
               </div>
 
               {/* Preguntas frecuentes */}
-
-            {/* Formulario de solicitud */}
-            <GuideForm />
-          </div>
-        </div>
               <div className={styles.faqSection}>
                 <h3 className={styles.faqTitle}>Preguntas frecuentes</h3>
                 
@@ -166,6 +241,21 @@ export default function SolicitaGuia() {
                 </div>
               </div>
             </div>
+
+            {/* Formulario de solicitud - LADO DERECHO */}
+            <div id="form" className={styles.formWrapper}>
+              <div className={styles.formHeader}>
+                <span className={styles.formBadge}>¡No esperes más!</span>
+                <h3 className={styles.formTitle}>Solicita tu guía local</h3>
+                <p className={styles.formDescription}>
+                  Llena esta solicitud y un experto en turismo de Zea te contactará 
+                  para personalizar tu experiencia y mostrarte los mejores rincones.
+                </p>
+              </div>
+              <GuideForm selectedPlaceIds={selectedPlaces} />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

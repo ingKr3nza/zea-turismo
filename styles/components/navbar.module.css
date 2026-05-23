@@ -5,6 +5,7 @@
   right: 0;
   z-index: 50;
   transition: all 0.3s ease;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .navbarTransparent {
@@ -38,6 +39,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: transform 0.3s ease;
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
 .logo:hover {
@@ -71,6 +73,7 @@
   transition: color 0.2s ease;
   position: relative;
   padding: 0.5rem 0;
+  font-family: var(--font-asap), sans-serif;
 }
 
 .menuItemDark {
@@ -153,6 +156,7 @@
   font-size: 1.1rem;
   border-bottom: 1px solid rgba(57, 74, 52, 0.1);
   transition: all 0.2s ease;
+  font-family: var(--font-asap), sans-serif;
 }
 
 .mobileMenuItem:last-child {

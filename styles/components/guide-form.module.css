@@ -143,3 +143,74 @@
   color: #2d6a4f;
   opacity: 0.9;
 }
+
+/* Selected Places Section */
+.selectedPlacesSection {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #fdf8f6 100%);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.selectedPlacesHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.selectedPlacesIcon {
+  color: var(--color-accent2);
+}
+
+.selectedPlacesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.selectedPlaceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  background: white;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Success message with places */
+.successPlaces {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(57, 74, 52, 0.1);
+  font-size: 0.9rem;
+}
+
+.successPlaces p {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.successPlacesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.successPlaceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(57, 74, 52, 0.1);
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}

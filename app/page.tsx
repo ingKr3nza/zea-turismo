@@ -40,7 +40,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Hero />
-
       {/* Features Section */}
       <section className={styles.featuresSection}>
         <div className={styles.container}>
@@ -53,18 +52,21 @@ export default function Home() {
             <FeatureCard
               title="Paisajes Andinos"
               description="Disfruta de vistas espectaculares de los Andes venezolanos, con montañas verdes y clima perfecto."
-              icon="🏔️"
+              iconSrc="/icon/park.svg"
+              iconAlt="Paisajes"
             />
             <FeatureCard
-              title="Pozo Azul"
-              description="Un paraíso natural de aguas cristalinas turquesa, ideal para senderismo y fotografía."
-              icon="💧"
+              title="Turismo Religioso"
+              description="Descubre la riqueza espiritual de Zea, sus iglesias coloniales y tradiciones religiosas únicas."
+              iconSrc="/icon/church.svg"
+              iconAlt="Iglesia"
               accent
             />
             <FeatureCard
               title="Cultura Cafetera"
-              description="Conoce el proceso del café de altura y degusta el mejor café de la región."
-              icon="☕"
+              description="Conoce el proceso del café de altura y degusta el mejor café de la región, reconocido mundialmente."
+              iconSrc="/icon/coffee.svg"
+              iconAlt="Café"
             />
           </div>
         </div>
@@ -99,23 +101,113 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.aboutGrid}>
             <div className={styles.aboutContent}>
+              <span className={styles.aboutBadge}>Historia y Tradición</span>
               <h3>El Rinconcito Encantado de los Andes</h3>
               <p>
-                Zea es un municipio con una rica historia que data de 1786, cuando fue formalmente poblado. 
-                Sus tierras, habitadas inicialmente por los indios motilones, hoy albergan un pueblo lleno 
-                de encanto colonial y tradiciones vivas.
+                Zea es una localidad del estado Mérida, enclavada entre las montañas del parque nacional general 
+                &ldquo;Juan Pablo Peñaloza&ldquo; (páramos &ldquo;El Batallón&ldquo; y &ldquo;La Negra&ldquo;) y los ríos &ldquo;Escalante&ldquo; y &ldquo;Guaruríes&ldquo;, 
+                al sur-oeste del mencionado estado. Su nombre se debe en honor al prócer y vicepresidente de la 
+                Gran Colombia, Francisco Antonio Zea.
               </p>
               <p>
-                La economía local gira en torno a la producción de café de altura, considerado uno de los 
-                mejores de Venezuela. Además, su principal atractivo turístico, Pozo Azul, atrae visitantes 
-                de todo el país buscando aventura y contacto con la naturaleza.
+                Este hermoso pueblo, gracias a su formación geográfica, disfruta de un agradable clima de templado 
+                a frío. Además, cuenta con hermosos riachuelos que brindan a la población agua de manantial para su 
+                consumo. Los habitantes mantienen vivas las tradiciones gastronómicas, culturales y religiosas, 
+                ofreciendo una experiencia auténtica a sus visitantes.
               </p>
+              <div className={styles.aboutFeatures}>
+                <div className={styles.aboutFeature}>
+                  <div className={styles.aboutFeatureIcon}>
+                    <Image 
+                      src="/icon/colonial.svg" 
+                      alt="Arquitectura Colonial" 
+                      width={24} 
+                      height={24}
+                    />
+                  </div>
+                  <span>Arquitectura Colonial</span>
+                </div>
+                <div className={styles.aboutFeature}>
+                  <div className={styles.aboutFeatureIcon}>
+                    <Image 
+                      src="/icon/church.svg" 
+                      alt="Tradiciones Religiosas" 
+                      width={24} 
+                      height={24}
+                    />
+                  </div>
+                  <span>Tradiciones Religiosas</span>
+                </div>
+                <div className={styles.aboutFeature}>
+                  <div className={styles.aboutFeatureIcon}>
+                    <Image 
+                      src="/icon/coffee.svg" 
+                      alt="Producción de Café" 
+                      width={24} 
+                      height={24}
+                    />
+                  </div>
+                  <span>Producción de Café</span>
+                </div>
+                <div className={styles.aboutFeature}>
+                  <div className={styles.aboutFeatureIcon}>
+                    <Image 
+                      src="/icon/park.svg" 
+                      alt="Parque Nacional" 
+                      width={24} 
+                      height={24}
+                    />
+                  </div>
+                  <span>Parque Nacional</span>
+                </div>
+              </div>
               <Button href="/conoce-zea" variant="secondary" size="large">
                 Conoce nuestra historia
               </Button>
             </div>
-            <div className={styles.aboutImage}>
-              <Image src="/zeaHorizontal.jpg" width={400} height={400} alt="Vista panorámica de Zea" />
+            
+            <div className={styles.aboutImageContainer}>
+              {/* Imagen principal */}
+              <div className={styles.aboutImageMain}>
+                <Image 
+                  src="/images/zeaHorizontal.jpg" 
+                  width={500} 
+                  height={350} 
+                  alt="Vista panorámica de Zea"
+                  className={styles.aboutImage}
+                />
+                <div className={styles.aboutImageOverlay}>
+                  <span className={styles.aboutImageText}>Municipio Zea • Fundado en 1786</span>
+                </div>
+              </div>
+              
+              {/* Imágenes secundarias */}
+              <div className={styles.aboutImagesGrid}>
+                <div className={styles.aboutImageSmall}>
+                  <Image 
+                    src="/images/mirador.jpg" 
+                    width={240} 
+                    height={160} 
+                    alt="Mirador de Zea"
+                    className={styles.aboutImage}
+                  />
+                  <div className={styles.aboutImageSmallOverlay}>
+                    <span>Mirador</span>
+                  </div>
+                </div>
+                <div className={styles.aboutImageSmall}>
+                  <Image 
+                    src="/images/plaza1.jpg" 
+                    width={240} 
+                    height={160} 
+                    alt="Plaza Bolívar de Zea"
+                    className={styles.aboutImage}
+                  />
+                  <div className={styles.aboutImageSmallOverlay}>
+                    <span>Plaza Bolívar</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { FiInfo } from 'react-icons/fi';
 interface TransportCardProps {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
   accent?: boolean;
   details?: string[];
 }

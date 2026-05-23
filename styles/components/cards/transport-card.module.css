@@ -1,62 +1,38 @@
+/* styles/components/cards/transport-card.module.css */
+
 .card {
   background: white;
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
   transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: flex-start;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateX(10px);
-  border-color: #db4b4e;
-  box-shadow: 0 20px 40px -10px rgba(219, 75, 78, 0.2);
-}
-
-.accent {
-  background: linear-gradient(135deg, #db4b4e 0%, #e6a36a 100%);
-}
-
-.accent .title,
-.accent .description,
-.accent .detailsButton {
-  color: white;
-}
-
-.accent .detailsList li {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.accent .detailsList li::before {
-  color: #ecc9bd;
+  transform: translateX(5px);
+  border-color: var(--color-accent2);
+  box-shadow: 0 10px 20px -5px rgba(219, 75, 78, 0.15);
 }
 
 .iconWrapper {
-  font-size: 2.5rem;
-  min-width: 70px;
-  height: 70px;
-  background: #ecc9bd;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.8rem;
   transition: all 0.3s ease;
 }
 
 .card:hover .iconWrapper {
-  background: #db4b4e;
-  color: white;
-  transform: rotate(10deg) scale(1.1);
-}
-
-.accent .iconWrapper {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--color-accent2);
+  transform: rotate(5deg);
 }
 
 .content {
@@ -64,54 +40,81 @@
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #394a34;
-  margin-bottom: 0.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
 .description {
   color: #666;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
 }
 
 .detailsButton {
   background: none;
   border: none;
-  color: #db4b4e;
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: var(--color-accent2);
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0;
-  transition: all 0.2s ease;
+  gap: 0.25rem;
+  padding: 0;
+  transition: gap 0.3s ease;
 }
 
 .detailsButton:hover {
   gap: 0.5rem;
-  color: #394a34;
 }
 
 .detailsList {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid #e0e0e0;
   list-style: none;
 }
 
 .detailsList li {
-  padding: 0.3rem 0 0.3rem 1.5rem;
-  position: relative;
+  padding: 0.25rem 0;
+  font-size: 0.8rem;
   color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .detailsList li::before {
-  content: '•';
-  color: #db4b4e;
+  content: '✓';
+  color: var(--color-accent3);
   font-weight: bold;
-  position: absolute;
-  left: 0;
+}
+
+.card.accent {
+  background: linear-gradient(135deg, var(--color-accent2) 0%, var(--color-accent3) 100%);
+}
+
+.card.accent .title,
+.card.accent .description {
+  color: white;
+}
+
+.card.accent .iconWrapper {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.card.accent .detailsButton {
+  color: white;
+}
+
+.card.accent .detailsList li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card.accent .detailsList li::before {
+  color: white;
 }

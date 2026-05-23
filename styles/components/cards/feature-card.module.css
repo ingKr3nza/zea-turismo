@@ -42,13 +42,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
   transition: all 0.3s ease;
 }
 
 .card:hover .iconWrapper {
   background: #db4b4e;
-  transform: rotate(360deg) scale(1.1);
+  transform: rotateY(180deg);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.card:hover .icon {
+  filter: brightness(0) invert(1);
 }
 
 .title {
@@ -56,6 +65,7 @@
   font-weight: 700;
   color: #394a34;
   margin-bottom: 1rem;
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
 .description {
@@ -63,15 +73,28 @@
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.link {
+  color: #db4b4e;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.link:hover {
+  transform: translateX(5px);
 }
 
 .accent {
-  background: linear-gradient(135deg, #dea080 0%, #e6a36a 100%);
+  background: linear-gradient(135deg, #394a34 0%, #2a3726 100%);
   color: white;
 }
 
 .accent .title {
-  color: white;
+  color: #ecc9bd;
 }
 
 .accent .description {
@@ -79,6 +102,17 @@
 }
 
 .accent .iconWrapper {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.accent:hover .iconWrapper {
+  background: #ecc9bd;
+}
+
+.accent:hover .icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(12%) saturate(1086%) hue-rotate(78deg) brightness(95%) contrast(88%);
+}
+
+.accent .link {
+  color: #e6a36a;
 }

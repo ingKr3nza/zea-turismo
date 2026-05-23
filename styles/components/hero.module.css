@@ -19,8 +19,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300%;
-  height: 300%;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   opacity: 0.4;
 }
@@ -28,7 +28,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
 }
 
 .content {
@@ -36,17 +36,19 @@
   z-index: 10;
   text-align: center;
   color: white;
-  padding: 0 1rem;
+  padding: 0 2rem;
   max-width: 64rem;
   margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
 }
 
 .title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-space-grotesk), sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -56,7 +58,22 @@
 }
 
 .highlight {
-  color: var(--color-accent2);
+  color: #ecc9bd;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ecc9bd, #db4b4e, #e6a36a);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineReveal 0.8s ease-out 0.5s forwards;
 }
 
 .subtitle {
@@ -65,7 +82,9 @@
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-montserrat), sans-serif;
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 @media (min-width: 768px) {
@@ -74,25 +93,131 @@
   }
 }
 
-.button {
+.buttonGroup {
   display: flex;
-  margin-bottom: 1rem;
-  width: fit-content;
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   border-radius: 9999px;
   transition: all 0.3s ease;
-  background-color: var(--color-accent3);
-  color: var(--color-accent2);
+  background-color: #e6a36a;
+  color: #394a34;
   border: 2px solid transparent;
   text-decoration: none;
+  font-family: var(--font-asap), sans-serif;
 }
 
 .button:hover {
   transform: scale(1.05);
-  background-color: var(--color-accent2);
-  color: var(--color-accent3);
-  border-color: var(--color-accent3);
+  background-color: #394a34;
+  color: #e6a36a;
+  border-color: #e6a36a;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.buttonOutline {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.buttonOutline:hover {
+  background-color: white;
+  color: #394a34;
+  border-color: white;
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  z-index: 10;
+}
+
+.scrollMouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid white;
+  border-radius: 20px;
+  position: relative;
+}
+
+.scrollWheel {
+  width: 4px;
+  height: 8px;
+  background: white;
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.5s infinite;
+}
+
+.scrollText {
+  color: white;
+  font-size: 0.75rem;
+  font-family: var(--font-asap), sans-serif;
+  opacity: 0.8;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineReveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
 }
