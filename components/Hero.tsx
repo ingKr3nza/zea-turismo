@@ -9,7 +9,7 @@ export default function Hero() {
       <div className={styles.videoBackground}>
         <Image
           className={styles.videoIframe}
-          src="/zeaHero.jpg"
+          src="/images/zeaHero.jpg"
           width={1200}
           height={1200}
           alt=''
