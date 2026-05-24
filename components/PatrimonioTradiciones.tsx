@@ -56,7 +56,7 @@ const categories: Category[] = [
       {
         title: 'Danzas Murmuquena',
         description: 'El grupo Danzas Murmuquema fue creado por iniciativa de la junta directiva del Centro Social 19 de Abril, según acta del 1º de octubre de 1990. Se inició con 60 niños bajo la instrucción de Rodolfo Guerrero y Jesús Cedeño en las clases de danza, música y coreografía. Durante su existencia el grupo de danza ha forjado una reconocida trayectoria en la comunidad y en presentaciones en la capital del estado, así como en otras regiones como Táchira, Barinas, Portuguesa, Lara, Falcón y Monagas, entre otras.',
-        image: '/images/lugares/danzas.jpg'
+        image: '/images/lugares/danza.jpg'
       },
       {
         title: 'Leyenda del Oso de la Montaña',
@@ -115,7 +115,7 @@ const categories: Category[] = [
       {
         title: 'Santuario Santo Niño de La Cuchilla',
         description: 'La Capilla del Santo Niño de La Cuchilla fue bendecida el 30 de diciembre de 1950. En 1995 la capilla fue remodelada y elevada a la categoría de santuario, cuando se reconstruyeron sus espacios aledaños y el camino que conduce hasta el cerro más alto. El nuevo santuario fue bendecido el 27 de diciembre de 1995. Es un lugar de culto cuya forma arquitectónica se desarrolla a partir de la liturgia, con amplias áreas verdes y bancos de hierro forjado.',
-        image: '/images/lugares/santuario-cuchilla.jpg'
+        image: '/images/lugares/santuario-cuchilla.JPG'
       },
       {
         title: 'Santo Niño de La Cuchilla',

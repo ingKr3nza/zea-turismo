@@ -264,7 +264,7 @@ export default function ConoceZea() {
                   '/images/cultura/3.jpg',
                   '/images/cultura/4.jpg',
                   '/images/cultura/5.jpg',
-                  '/images/cultura/6.jpg',
+                  '/images/cultura/6.JPG',
                   '/images/cultura/7.jpg'
                 ]}
                 alt="Cultura de Zea"
